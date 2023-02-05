@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#9c0997e6, rgb(30, 183, 194));
+}
+
+h2{
+    position: absolute;
+    top: 10%;
+    font-style: italic;
+    color: #fff;
+    font-weight: 800;
+    font-size: 5em;
+}
+
+.relogio{
+    position: relative;
+    width: 350px;
+    height: 349px;
+    background: #5629be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:70px ;
+    box-shadow: 30px 30px 30px -10px rgba(28, 28, 28, 0.15),
+    inset 15px 15px 10px rgba(255, 255, 255, 0.15),
+    -15px -15px 35px rgba(145, 143, 245, 0.45),
+    inset -1px -1px 10px rgba(0,0,0,0.40);
+}
+
+.relogio::before{
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #d427cf;
+    border-radius: 50% ;
+    z-index: 1000;
+    box-shadow: 0 0 0 1px #d427cf, 0 0 0 3px #fff, 0 0 5pc 5px #000;
+}
+
+.relogio .numeros{
+    position: absolute;
+    inset: 35px;
+    background:  #2a145c;
+    border-radius: 50%;
+    box-shadow: 5px 5px 15px #7f19eb66,
+    inset 5px 5px 5px rgba(132, 68, 236, 0.524),
+    -6px -6px 10px #6323f7
+}
+
+.relogio .numeros span{
+    position: absolute;
+    inset: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 1.5em;
+    transform: rotate(calc(90deg * var(--i)));
+}
+
+.relogio .numeros span b{
+    font-weight: 600;
+    display: inline-block;
+    transform: rotate(calc(-90deg * var(--i)));
+}
+
+.relogio .numeros::before{
+    content: '';
+    position: absolute;
+    inset: 35px;
+    background: linear-gradient(#d427cf, rgb(24, 164, 174));
+    border-radius: 50%;
+    animation: animate 2s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        transform: rotate(360deg);
+    }
+
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
+.relogio .numeros::after{
+    content: '';
+    position: absolute;
+    inset: 40px;
+    background:  #2a145c;
+    border-radius: 50%;
+}
+
+.relogio .numeros .circulo{
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.relogio .numeros .circulo i{
+    position: absolute;
+    width: 3px;
+    height: 50%;
+    background: linear-gradient(#ffffff, #dcd3f3);
+    transform-origin: bottom;
+    
+}
+
+.relogio .numeros .circulo#hr i{
+    transform: scaleY(0.3);
+    width: 4px;
+}
+
+.relogio .numeros .circulo#mn i{
+    transform: scaleY(0.45);
+}
+
+.relogio .numeros .circulo#sc i{
+    width: 2px;
+    transform: scaleY(0.55);
+    background:rgb(24, 164, 174) ;
+    box-shadow: 0 30px 0 #d427cf;
+}
